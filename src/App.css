@@ -1,38 +1,225 @@
-.App {
-  text-align: center;
+*{
+    margin: 0;
+    padding: 0;
+    --azulito: #0ad;
+    --gris: #ccc;
+}
+body{
+    background: linear-gradient(#58c, #fff);
+    height: 100vh;
+    /* overflow: hidden; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.lista-pokemon{
+    list-style: none;
+    border: 3px solid var(--gris);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 3px;
+    cursor: pointer;
+    text-align: center;
+    background: #fff;
+}
+.lista-pokemon:hover{
+    background: var(--azulito);
+    color: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container{
+    width: 80%;
+    margin: 10px auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.row{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    grid-template-areas: 'lista card'
+                         'btn  ...';
 }
 
-.App-link {
-  color: #61dafb;
+.card{
+    border: 1px solid var(--gris);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 5px 5px #222;
+    background: #fff
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-image{    
+    width: auto;
+    height: auto;
+    margin: 50px;
+}
+
+img{
+    width: 70%;
+}
+
+.pokeSel{
+    border: 3px solid var(--gris);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.mayus{
+    text-transform: uppercase;
+}
+
+a, a:active, a:link, a:visited{
+    text-decoration: none;
+    color: black;
+}
+
+.container-stats{
+    display: flex;
+    justify-content: space-evenly; 
+    padding: 5px 10px;
+}
+
+.item-stats{
+    border: 1px solid var(--azulito);
+    border-radius: 50%;
+    width: 15%;
+    height: 70px;
+    background: #eee;
+    color: #000;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+}
+
+.btn{
+    background: var(--azulito);
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    height: 30px;
+    cursor: pointer;
+    width: 30%;
+    grid-area: btn;
+}
+.btn:hover{
+    background: #089;
+}
+.container-btn{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-buscador{
+    background: var(--azulito);
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    height: 30px;
+    cursor: pointer;
+    width: 10%;
+}
+.btn-buscador:hover{
+    background: #089;
+}
+.input-buscador{
+    width: 35%;
+    height: 25px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    margin-right: 50px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    border-bottom: 2px solid #000;
+    border-left: 5px solid #fff;
+}
+.input-buscador::placeholder{
+    color: black;
+}
+.input-buscador:focus{
+    background: #fff;
+    border-left: 5px solid var(--azulito);
+}
+
+.inputVacio{
+    color: #f00;
+    position: absolute;
+    left: 55%;
+    top: 7%;
+}
+.btn-detalle    {
+    background: #e70;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    height: 30px;
+    cursor: pointer;
+    width: 30%;
+    grid-area: btn;
+}
+.btn-detalle:hover{
+    background: #e40;
+}
+
+.containerModal{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardModal{
+    background: #fff;
+    width: 50%;
+    height: 80%;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.cardModal__header{
+    
+}
+.cardModal__header-close{
+    position: absolute;
+    left: 73%;
+    top: 10%;
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 50%;
+    width: 2%;
+}
+.cardModal__header-close:hover{
+    color: #f00;
+}
+
+.closeModal{
+    display: none;
+}
+
+.cardModal__body{
+    text-align: start;
+}
+
+.cardModal__body ul{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 30px;
+}
+.cardModal__body-moves{
+    display: flex;
+    flex-wrap: wrap;  
+    height: 150px;
+    background: #ccc;
+    overflow: auto;
+    border-radius: 15px;   
+}
+.cardModal__body-moves ul{   
+    columns: 5;
+    color: #111;
 }
